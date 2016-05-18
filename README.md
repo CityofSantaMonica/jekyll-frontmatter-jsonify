@@ -32,7 +32,7 @@ food: toast
 Awesome content from 'item2.md'
 ```
 
-## The `jsonify` filter
+### The `jsonify` filter
 
 ```
 {{ site.sample_collection | jsonify }}
@@ -44,7 +44,7 @@ Awesome content from 'item2.md'
 [ "Sample Content from 'item1.md'", "Awesome content from 'item2.md'" ]
 ```
 
-## The `collection_jsonify` filter
+## The solution
 
 This plug-in introduces the `collection_jsonify` Liquid filter which will convert each collection item's frontmatter into a JSON array.
 
