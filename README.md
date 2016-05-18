@@ -1,6 +1,14 @@
 # Jekyll Frontmatter Jsonify
 
-The problem with the `jsonify` filter on a collection is that it will convert only the body of the collection item into a JSON array but not the frontmatter.
+## Use it
+
+```
+gem install jekyll-frontmatter-jsonify
+```
+
+## The problem
+
+The `jsonify` filter when applied to a collection will convert only the body of the collection item into a JSON array, and not the frontmatter.
 
 For example, we have a collection with two items:
 
