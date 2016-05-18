@@ -10,4 +10,10 @@ Gem::Specification.new do |s|
   s.homepage    =
     'https://github.com/CityofSantaMonica/jekyll-frontmatter-jsonify'
   s.license     = 'MIT'
+
+  s.files         = `git ls-files -z`.split("\x0")
+  s.executables   = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  s.require_paths = ["lib"]
+
+  s.add_dependency "jekyll", '>= 2.4'
 end
