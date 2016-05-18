@@ -1,6 +1,6 @@
 module Jekyll
   module FrontMatterJsonify
-    # These are keys defined by Jekyll that don't mean anything to analytics-reporter
+    # These are keys defined by Jekyll
     JekyllKeys = [
       'next', 'previous', 'path', 'id', 'output', 'content', 'to_s',
       'relative_path', 'url', 'collection', 'excerpt', 'draft', 'categories',
