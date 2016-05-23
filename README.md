@@ -2,6 +2,8 @@
 
 ## Use it
 
+Take a look at [Jekyll's instructions for loading plugins](https://jekyllrb.com/docs/plugins/#installing-a-plugin).
+
 ```
 gem install jekyll-frontmatter-jsonify
 ```

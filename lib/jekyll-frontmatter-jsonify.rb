@@ -1,22 +1,35 @@
 module Jekyll
   module FrontMatterJsonify
-    # These are keys defined by Jekyll
+    # Jekyll keys to always ignore
+    KeysBlacklist = [
+      'next', 'previous'
+    ]
+
+    # These are keys defined and created by Jekyll. They will be ignored if the user chooses to exclude them from the
+    # JSON array
     JekyllKeys = [
-      'next', 'previous', 'path', 'id', 'output', 'content', 'to_s',
-      'relative_path', 'url', 'collection', 'excerpt', 'draft', 'categories',
+      'path', 'id', 'output', 'content', 'to_s', 'relative_path',
+      'url', 'collection', 'excerpt', 'draft', 'categories',
       'title', 'slug', 'ext', 'tags', 'date'
     ]
 
     def collection_jsonify(collection, ignore_jekyll_keys = false)
-      results = []
+      collectionArray = []
 
       collection.each do |item|
-        JekyllKeys.each{ |k| item.data.delete(k) } if ignore_jekyll_keys
+        docDrop = Drops::DocumentDrop.new(item)
+        results = {}
 
-        results << item.data
+        docDrop.keys.each do |key|
+          next if (ignore_jekyll_keys and JekyllKeys.include? key) or (KeysBlacklist.include? key)
+
+          results[key] = docDrop[key]
+        end
+
+        collectionArray << results
       end
 
-      results.to_json
+      collectionArray.to_json
     end
   end
 end
